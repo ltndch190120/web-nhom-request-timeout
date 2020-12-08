@@ -1,0 +1,10 @@
+.hoveritemmenu:hover {
+    background-color: white;
+  }
+.hoveritemmenu:hover b {
+    color: black;
+ }
+
+ .hovermenu:hover {
+    background-color: white;
+  } 
