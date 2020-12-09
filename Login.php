@@ -6,6 +6,7 @@
    {
        $username = $_POST['username'];
        $password = $_POST['password'];
+       $password = md5($password);
        $select = "select * from taikhoan where username ='$username' and password ='$password' limit 1" or die('khogn ket noi');
        $result = mysqli_query($conn,$select);
 
@@ -14,6 +15,7 @@
            exit();
        }
        else{
+           header('Location: Login.html');
            echo "sai tai khoang hoac mat khau";
        }
    }
