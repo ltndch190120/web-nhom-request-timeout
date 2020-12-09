@@ -1,22 +1,27 @@
 <?php
-   $conn = mysqli_connect("localhost","root","");
-    mysqli_select_db($conn,"test") or die('khong connect duoc');
+  require_once 'init.php';
 
-   if(isset($_POST['username']))
+   if(isset($_POST['username']) && isset($_POST['password']))
    {
-       $username = $_POST['username'];
-       $password = $_POST['password'];
-       $password = md5($password);
-       $select = "select * from taikhoan where username ='$username' and password ='$password' limit 1" or die('khogn ket noi');
-       $result = mysqli_query($conn,$select);
-
-       if(mysqli_num_rows($result)== 1){
-           header('Location: Header.html');
-           exit();
-       }
-       else{
-           header('Location: Login.html');
-           echo "sai tai khoang hoac mat khau";
-       }
+    $username=$_POST['username'];
+	$password=$_POST['password'];
+	$user=findUserByUsername($username);
+	if(!$user)
+	{
+		$error='Quý khách vui lòng kiểm tra lại';
+	}
+	else
+	{
+		if(!password_verify($password,$user['password']))
+		{
+			$error='Mật khẩu không chính xác';
+		}
+		else
+		{
+			$_SESSION['userID']=$user['id'];
+			header('Location: Header.html');
+			exit();
+		}
+	}
    }
 ?>

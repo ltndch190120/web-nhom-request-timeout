@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2020 at 07:42 AM
+-- Generation Time: Dec 09, 2020 at 05:54 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -96,16 +96,18 @@ CREATE TABLE `sanpham` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `taikhoang`
+-- Table structure for table `taikhoan`
 --
 
-CREATE TABLE `taikhoang` (
+CREATE TABLE `taikhoan` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) DEFAULT NULL,
   `loaitk` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `ngaytao` timestamp NOT NULL DEFAULT current_timestamp()
+  `ngaytao` timestamp NOT NULL DEFAULT current_timestamp(),
+  `code` varchar(255) DEFAULT NULL,
+  `NameAccout` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -186,9 +188,9 @@ ALTER TABLE `sanpham`
   ADD PRIMARY KEY (`masp`);
 
 --
--- Indexes for table `taikhoang`
+-- Indexes for table `taikhoan`
 --
-ALTER TABLE `taikhoang`
+ALTER TABLE `taikhoan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -238,10 +240,10 @@ ALTER TABLE `sanpham`
   MODIFY `masp` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `taikhoang`
+-- AUTO_INCREMENT for table `taikhoan`
 --
-ALTER TABLE `taikhoang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `taikhoan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `thongke`
