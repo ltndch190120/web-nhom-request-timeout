@@ -23,6 +23,15 @@ function findUserByEmail($email)
 	 $stmt->execute(array($email));
 	 return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+function createUserUpdate($email,$repassword)
+{
+	 global $db;
+	 $stmt = $db->prepare("UPDATE taikhoan SET password=? WHERE email=?");
+	 $stmt->execute(array($repassword,$email));
+     $stmt = $db->prepare("SELECT * FROM taikhoan WHERE email=?");
+	 $stmt->execute(array($email));
+	 return $stmt->fetch(PDO::FETCH_ASSOC);
+}
 function findUserByUsername($username)
 {
 	 global $db;
