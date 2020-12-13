@@ -39,6 +39,7 @@ function findUserByUsername($username)
 	 $stmt->execute(array($username));
 	 return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
 function createUser($username,$email,$password,$code,$NameAccout)
 {
 	 global $db;
@@ -46,13 +47,20 @@ function createUser($username,$email,$password,$code,$NameAccout)
 	 $stmt->execute(array($username,$email,$password,$code,$NameAccout));
      return findUserById($db->lastInsertId());
 }
+function requireLoggedIn()
+{
+	global $currentUser;
+	if(!$currentUser){
+	header('Location: Login.html');
+	exit();
+	}
+}
 function getCurrentUser()
 {
-	if(isset($_SESSION['userID']))
-	{
-		return findUserById($_SESSION['userID']);
-	}
-	return null;
+    if(isset($_SESSION['userId'])){
+        return findUserById($_SESSION['userId']);
+    }
+    return null;
 }
 function sendEmail($to, $title, $content)
 {
@@ -83,5 +91,11 @@ try {
         {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
+}
+function updateAvatar ($userId,$avatar,$sdt,$NameAccout)
+{
+	 global $db;
+	 $stmt = $db->prepare("UPDATE taikhoan SET avatar =?,sdt=?,NameAccout=? WHERE id=? ");
+	 $stmt->execute(array($avatar,$sdt,$NameAccout,$userId));
 }
 ?>

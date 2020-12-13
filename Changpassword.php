@@ -16,3 +16,4 @@ if(isset($_POST['email']))
 	}
 }
 ?>
+<?php include 'Header.html';?>
