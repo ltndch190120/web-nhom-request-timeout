@@ -1,5 +1,6 @@
 <html lang="en">
-
+    <?php
+require_once 'init.php' ; ?>
 <head>
     <title></title>
     <meta charset="utf-8">
@@ -22,7 +23,9 @@
         function go_chang() {
             location.assign("Changpassword.html");
         }
-  
+        funtion go_out(){
+            location.assign("logout.php");
+        }
 
         
 
@@ -30,10 +33,9 @@
 
 </head>
 
-<body>
-   
+<body>  
     <div style="font-family: Arial, Helvetica, sans-serif;">
-        <form style="margin: 0%;" action="Login.php" method="POST">
+      
         <div
             style="display: flex;width: 100%; height: 40px;padding-left: 5%;padding-right: 5%;background-color: rgb(24, 158, 255);font-size: 14px;">
             <div style="flex:1">
@@ -55,23 +57,23 @@
                 </button>
 
             </div>
-            <div class="hoveritemmenu"
-                style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
-                <b>Lịch Sử Mua Hàng</b>
-            </div>
-            <div class="hoveritemmenu" onclick="go_login()"
-                style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
-                <b>Đăng Nhập </b>
-            </div>
-            <div class="hoveritemmenu" onclick="go_register()"
-                style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
-                <b>Đăng Ký </b>
-            </div>
-
-             <div class="hoveritemmenu" onclick="go_profile()"
-                style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
-                <b>Cá nhân </b>
-            </div>
+         
+                <div class="hoveritemmenu"
+                    style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
+                    <b>Lịch Sử Mua Hàng</b>
+                </div>
+                <div class="hoveritemmenu" 
+                    style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
+                    <b><?php echo $username ?></b>
+                </div>
+                <div class="hoveritemmenu" onclick ="go_out()" 
+                    style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
+                    <a href="loguot.php" >thoat </a>
+                </div>
+                <div class="hoveritemmenu" onclick="go_profile()"
+                    style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
+                    <b>Cá nhân </b>
+                </div>
         </div>
         <div
             style="display: flex;width: 100%; height: 40px;padding-left: 5%;padding-right: 5%;background-color: yellow;">
