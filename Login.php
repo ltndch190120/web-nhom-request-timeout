@@ -1,6 +1,6 @@
 <?php
   require_once 'init.php';
-
+	$username1 = $_POST['username'];
    if(isset($_POST['username']) && isset($_POST['password']))
    {
     $username=$_POST['username'];
@@ -25,4 +25,4 @@
 	}
    }
 ?>
-<?php include 'Header.html';?>
+<?php include 'Header.php';?>
