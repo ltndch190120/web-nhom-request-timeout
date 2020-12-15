@@ -1,5 +1,5 @@
-<html lang="en">
 
+<html lang="en">
 <head>
     <title></title>
     <meta charset="utf-8">
@@ -29,12 +29,11 @@
             location.assign("Cartshop.html");
         }
         function go_info() {
-            location.assign("information.html");
+            location.assign("information.php");
         }
     </script>
 
 </head>
-
 <body>
     <div style="font-family: Arial, Helvetica, sans-serif;">
         <div
@@ -111,23 +110,24 @@
                 <div style="height: 500px; background-color: white;border-radius: 10px;">
                     <div style="padding: 30px 30px 0px 30px;display: flex;">
                         <div style="flex: 1;">
+                        <form action="profile.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group" style="display: flex;height: 50px;align-items: center;">
                                 <label style="width: 130px;">
                                     Họ tên
                                 </label>
-                                <input style="height: 40px;font-size: 14px;" type="" class="form-control" id="">
+                                <input style="height: 40px;font-size: 14px;" type="NameAccout" class="form-control" id="NameAccout" name="NameAccout" >
                             </div>
                             <div class="form-group" style="display: flex;height: 50px;align-items: center;">
                                 <label style="width: 130px;">
                                     Số điện thoại
                                 </label>
-                                <input style="height: 40px;font-size: 14px;" type="" class="form-control" id="">
+                                <input style="height: 40px;font-size: 14px;" type="text" class="form-control" id="sdt" name="sdt">
                             </div>
                             <div class="form-group" style="display: flex;height: 50px;align-items: center;">
                                 <label style="width: 130px;">
                                     Email
                                 </label>
-                                <input style="height: 40px;font-size: 14px;" type="" class="form-control" id="">
+                                <input style="height: 40px;font-size: 14px;" type="email" class="form-control" id="email" name="email">
                             </div>
                             <div style="display: flex;height: 50px;align-items: center;">
                                 <label style="width: 130px;">
@@ -147,38 +147,31 @@
                                         Nữ
                                     </label>
                                 </div>
-
-
                             </div>
                             <div class="form-group" style="display: flex;height: 100px;align-items: center;">
                                 <label style="width: 130px;">
                                     Địa chỉ
                                 </label>
-                                <textarea style="height: 80px;font-size: 14px;" type="" class="form-control"
-                                    id=""></textarea>
+                                <textarea style="height: 80px;font-size: 14px;" type="text" class="form-control"
+                                    id="diachi" name="diachi"></textarea>
                             </div>
                         </div>
-                        <div style="flex: 0.6; ">
                             <div style="display: flex;justify-content: center;">
-                                <img style="height: 250px;width: 250px;"
-                                    src="https://mcvideomd1fr.keeng.net/playnow/images/channel/avatar/20190820/84384489502_20190820085810.jpg" />
                             </div>
-                            <div style="display: flex;justify-content: center;align-items: center; height: 60px;">
-                                <button style="height: 30px;width: 80px;justify-content: center;">Up load</button>
+                            <div style="display: flex;justify-content: center;align-items: center; height: height: 80px;padding-left: 180px;">
+                                 <input type="file" class="form-control-file" id="avatar" name="avatar">
                             </div>
                         </div>
-
                     </div>
                     <div style="height: 80px;padding-left: 200px;">
-                        <button type="button"
+                        <button name="submit" id="submit" value="submit"
                             style="height: 40px;width: 130px;background-color: #f2ce6b;border-radius: 3px;border-color:f2ce6b ;border-width: 1px;border-style: solid;">Xác Nhận</button>
                     </div>
+                    </form>
                 </div>
             </div>
-
         </div>
-
-
+ </form>
         <div
             style="display: flex;justify-content: space-around;padding-left: 5%;padding-right: 5%;margin-top: 15px;margin-bottom: 15px;font-size: 14px;font-family: Arial, Helvetica, sans-serif;">
             <div style="flex: 1;color: #288ad6;">
@@ -221,7 +214,5 @@
 
         </div>
     </div>
-
 </body>
-
 </html>

@@ -92,10 +92,10 @@ try {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
 }
-function updateAvatar ($userId,$avatar,$sdt,$NameAccout)
+function updateAvatar ($userId,$avatar,$NameAccout,$sdt,$email,$diachi)
 {
 	 global $db;
-	 $stmt = $db->prepare("UPDATE taikhoan SET avatar =?,sdt=?,NameAccout=? WHERE id=? ");
-	 $stmt->execute(array($avatar,$sdt,$NameAccout,$userId));
+	 $stmt = $db->prepare("UPDATE taikhoan SET avatar =?,NameAccout=?,sdt=?,email=?,diachi=? WHERE id=? ");
+	 $stmt->execute(array($avatar,$NameAccout,$sdt,$email,$diachi,$userId));
 }
 ?>
