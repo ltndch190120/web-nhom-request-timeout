@@ -9,6 +9,7 @@ function activateUser($id)
     $stmt = $db->prepare("UPDATE taikhoan set code = ? where id = ?"); 
     return $stmt->execute(array($code,$id));
 }
+
 function findUserById($id)
 {
 	 global $db;
@@ -92,10 +93,10 @@ try {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
 }
-function updateAvatar ($userId,$avatar,$NameAccout,$sdt,$email,$diachi)
+function updateAvatar ($userId,$NameAccout,$sdt,$email,$diachi,$gender)
 {
 	 global $db;
-	 $stmt = $db->prepare("UPDATE taikhoan SET avatar =?,NameAccout=?,sdt=?,email=?,diachi=? WHERE id=? ");
-	 $stmt->execute(array($avatar,$NameAccout,$sdt,$email,$diachi,$userId));
+	 $stmt = $db->prepare("UPDATE taikhoan SET NameAccout=?,sdt=?,email=?,diachi=?,gender=? WHERE id=? ");
+	 $stmt->execute(array($NameAccout,$sdt,$email,$diachi,$gender,$userId));
 }
 ?>

@@ -60,7 +60,7 @@ require_once 'init.php' ; ?>
          
                 <div class="hoveritemmenu"
                     style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
-                    <b>Lịch Sử Mua Hàng</b>
+                    <b>Cá nhân</b>
                 </div>
                 <div class="hoveritemmenu" 
                     style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
