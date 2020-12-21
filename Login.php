@@ -1,6 +1,6 @@
 <?php
   require_once 'init.php';
-	$username1 = $_POST['username'];
+  $title='Đăng nhập';
    if(isset($_POST['username']) && isset($_POST['password']))
    {
     $username=$_POST['username'];
@@ -19,7 +19,7 @@
 		else
 		{
 			$_SESSION['userID']=$user['id'];
-			header('Location: Header.html');
+			header('Location: Header.php');
 			exit();
 		}
 	}

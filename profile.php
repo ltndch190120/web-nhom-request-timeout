@@ -37,20 +37,18 @@ if(isset($_POST['email']) && isset($_POST['sdt']) && isset($_POST['NameAccout'])
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <script>
-        function go_login() {
-            location.assign("Login.html");
-        }
+        
         function go_register() {
             location.assign("register.html");
         }
         function go_chang() {
-            location.assign("Changpassword.html");
+            location.assign("newpassword.html");
         }
         function go_cart() {
             location.assign("Cartshop.html");
         }
-        function go_info() {
-            location.assign("profile.php");
+        function go_logout() {
+            location.assign("logout.php");
         }
     </script>
 
@@ -78,17 +76,17 @@ if(isset($_POST['email']) && isset($_POST['sdt']) && isset($_POST['NameAccout'])
                 </button>
 
             </div>
-            <div class="hoveritemmenu" onclick="go_info()"
+            <div class="hoveritemmenu" onclick="go_chang()"
                 style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
-                <b>Cá nhân</b>
-            </div>
-            <div class="hoveritemmenu" onclick="go_login()"
-                style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
-                <b>Đăng Nhập </b>
+                <b>Đổi mật khẩu</b>
             </div>
             <div class="hoveritemmenu" onclick="go_register()"
                 style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
                 <b>Đăng Ký </b>
+            </div>
+            <div class="hoveritemmenu" onclick="go_logout()"
+                style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
+                <b>Đăng Xuất </b>
             </div>
         </div>
         <div
@@ -161,14 +159,14 @@ if(isset($_POST['email']) && isset($_POST['sdt']) && isset($_POST['NameAccout'])
                                 </label>
                                 <div class="form-check-inline" style="width: 150px;">
                                     <input style="outline: none;height: 20px;width: 40px;margin-right: 10px;font-size: 14px;"
-                                        type="radio" class="form-check-input" id="inlineRadio1" name="gender" value="Nam" checked>
+                                        type="radio" class="form-check-input" id="inlineRadio1" name="gender" value="Nam"  >
                                     <label class="form-check-label" for="inlineRadio1">
-                                        Nam
+                                        Nam 
                                     </label>
                                 </div>
                                 <div class="form-check-inline" style="width: 150px;">
                                     <input style="outline: none;height: 20px;width: 40px;margin-right: 10px;font-size: 14px;"
-                                        type="radio" class="form-check-input" id="inlineRadio2" name="gender" value="Nữ">
+                                        type="radio" class="form-check-input" id="inlineRadio2" name="gender" value="Nữ" >
                                     <label class="form-check-label" for="inlineRadio2">
                                         Nữ
                                     </label>

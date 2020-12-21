@@ -2,6 +2,12 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+function getAll(){
+    global $db;
+    $stmt = $db->prepare("SELECT * FROM taikhoan");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 function activateUser($id)
 {
 	global $db;
