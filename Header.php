@@ -281,7 +281,7 @@ global $db;
 
                 </div>
             </div>
-        </div>
+        </div>  
 <?php endif; ?>
 </body>
 </html>
