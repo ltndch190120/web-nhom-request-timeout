@@ -10,4 +10,3 @@ error_reporting(E_ALL);
 $db = new PDO('mysql:host=localhost;dbname=dack;charset=utf8', 'root', '');
 require_once 'functions.php';
 $currentUser=getCurrentUser();
-

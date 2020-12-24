@@ -16,7 +16,7 @@ function activateUser($id)
     return $stmt->execute(array($code,$id));
 }
 
-function findUserById($id)
+function findUserById($id)  
 {
 	 global $db;
 	 $stmt = $db->prepare("SELECT * FROM taikhoan WHERE id=?");
@@ -46,6 +46,14 @@ function findUserByUsername($username)
 	 $stmt->execute(array($username));
 	 return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+function findIdByUsername($username)
+{
+	 global $db;
+	 $stmt = $db->prepare("SELECT id FROM taikhoan WHERE username=?");
+	 $stmt->execute(array($username));
+	 return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
 
 function createUser($username,$email,$password,$code,$NameAccout)
 {
@@ -69,6 +77,7 @@ function getCurrentUser()
     }
     return null;
 }
+
 function sendEmail($to, $title, $content)
 {
 
