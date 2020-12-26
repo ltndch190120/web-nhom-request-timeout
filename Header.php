@@ -4,6 +4,7 @@ global $db;
 $sql = "SELECT * FROM taikhoan";
 $result = $db->query($sql);
 $row = $result->fetch(PDO::FETCH_ASSOC);
+
 ?>
 <html lang="en">
 
@@ -35,6 +36,12 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
         function go_cart() {
             location.assign("Cartshop.php");
         }
+        function go_profile() {
+            location.assign("profile.php");
+        }
+        function go_logout() {
+            location.assign("logout.php");
+        }
 
     </script>
 
@@ -55,8 +62,9 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
                 <span style="position: absolute;right: 15px;top: 10px;font-size: 20px;"
                     class="glyphicon glyphicon-search"> </span>
             </div>
+            <?php if($_SESSION): ?>
             <div style="flex:1 ;display: flex; justify-content: center; align-items: center;">
-                <button onclick="go_cart()"
+                <button onclick="go_cart()" 
                     style="width: 90%;height: 90%;background-color: rgb(24, 158, 255);color: white; border-width: 1;border-radius: 5px;border-color: white;border-style: solid;outline: none;">
                     <span style="font-size: 20px;" class="	glyphicon glyphicon-shopping-cart"></span>
                     Giỏ Hàng
@@ -67,6 +75,15 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
                 style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
                 <b>Lịch Sử Mua Hàng</b>
             </div>
+            <div class="hoveritemmenu" onclick="go_profile()"
+                style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
+                <b>Cá Nhân </b>
+            </div>
+            <div class="hoveritemmenu" onclick="go_logout()"
+                style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
+                <b>Đăng Xuất </b>
+            </div>
+            <?php else: ?>
             <div class="hoveritemmenu" onclick="go_login()"
                 style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
                 <b>Đăng Nhập </b>
@@ -75,6 +92,7 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
                 style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
                 <b>Đăng Ký </b>
             </div>
+            <?php endif; ?> 
         </div>
         <div
             style="display: flex;width: 100%; height: 40px;padding-left: 5%;padding-right: 5%;background-color: yellow;">
@@ -105,5 +123,6 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
                 <span style="font-size: 23px;margin-right: 5px;" class="fas fa-headphones-alt"></span>
                 <span style="font-size: 20px;">Phụ Kiện</span>
             </div>
-
         </div>
+
+  

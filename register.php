@@ -1,5 +1,6 @@
 <?php
     require_once 'init.php';
+    $title='Đăng Ký';
     if(isset($_POST['email'])&& isset($_POST['password'])  )
     {
         $username = $_POST['username'];
@@ -30,5 +31,5 @@
         }
     }
 ?>
-<?php include 'Header.html';?>
+<?php include 'Header.php';?>
 

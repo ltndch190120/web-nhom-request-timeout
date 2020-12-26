@@ -1,4 +1,6 @@
-<?php include 'Header.php'; ?>
+<?php include 'Header.php';
+$title='Giỏ Hàng';
+?>
     <script>
         function go_login() {
             location.assign("Login.html");

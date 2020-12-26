@@ -69,20 +69,16 @@ if(isset($_POST['email']) && isset($_POST['sdt']) && isset($_POST['NameAccout'])
                     class="glyphicon glyphicon-search"> </span>
             </div>
             <div style="flex:1 ;display: flex; justify-content: center; align-items: center;">
-                <button onclick="go_cart()"
+                <button onclick="go_cart()" 
                     style="width: 90%;height: 90%;background-color: rgb(24, 158, 255);color: white; border-width: 1;border-radius: 5px;border-color: white;border-style: solid;outline: none;">
                     <span style="font-size: 20px;" class="	glyphicon glyphicon-shopping-cart"></span>
                     Giỏ Hàng
                 </button>
 
             </div>
-            <div class="hoveritemmenu" onclick="go_chang()"
+            <div class="hoveritemmenu" onclick="go_chang()" 
                 style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
-                <b>Đổi mật khẩu</b>
-            </div>
-            <div class="hoveritemmenu" onclick="go_register()"
-                style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
-                <b>Đăng Ký </b>
+                <b>Đổi mật khẩu  </b>
             </div>
             <div class="hoveritemmenu" onclick="go_logout()"
                 style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">

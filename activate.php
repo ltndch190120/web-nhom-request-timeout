@@ -27,7 +27,7 @@ if($user)
 }
 
 ?>
-<?php include 'Header.html';?>
+<?php include 'Header.php';?>
 <div class="alert alert-danger" role="alert">
  <?php echo $error; ?>
 </div>

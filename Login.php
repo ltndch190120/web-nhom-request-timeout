@@ -9,20 +9,23 @@
 	if(!$user)
 	{
 		$error='Quý khách vui lòng kiểm tra lại';
+		
 	}
 	else
 	{
 		if(!password_verify($password,$user['password']))
 		{
 			$error='Mật khẩu không chính xác';
+			
 		}
 		else
 		{
 			$_SESSION['userID']=$user['id'];
-			header('Location: Header.php');
+			header('Location: index.php');
 			exit();
 		}
 	}
+	
    }
-?>
+?>	
 <?php include 'Header.php';?> 

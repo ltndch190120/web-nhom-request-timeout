@@ -1,5 +1,6 @@
 <?php
   require_once 'init.php';
+  $title='Đổi Mật Khẩu';
 if(isset($_POST['email']) && isset($_POST['password']))
 {
     $email=$_POST['email'];
@@ -19,7 +20,6 @@ if(isset($_POST['email']) && isset($_POST['password']))
 		 else
    		{
     	  		$user=createUserUpdate($email,password_hash($password,PASSWORD_DEFAULT));
-    	  		sendEmail($email,'Kích hoạt tài khoản','Vui lòng click vào link <a href="http://localhost/DACK/activate.php?id=' .$user['id'] .'&code=' .$user['code'] . '">kích hoạt tài khoản</a>');
 		 		 header('Location: Login.html');
 		 		 exit();	
     	}

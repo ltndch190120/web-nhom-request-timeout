@@ -1,5 +1,6 @@
 <?php
 require_once 'init.php';
+$title='Quên Mật Khẩu';
 if(isset($_POST['email']))
 {
 	$email=$_POST['email'];
@@ -16,4 +17,4 @@ if(isset($_POST['email']))
 	}
 }
 ?>
-<?php include 'Header.html';?>
+<?php include 'Header.php';?>

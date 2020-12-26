@@ -49,12 +49,10 @@ function findUserByUsername($username)
 function findIdByUsername($username)
 {
 	 global $db;
-	 $stmt = $db->prepare("SELECT id FROM taikhoan WHERE username=?");
+	 $stmt = $db->prepare("SELECT * FROM taikhoan WHERE username=?");
 	 $stmt->execute(array($username));
 	 return $stmt->fetch(PDO::FETCH_ASSOC);
 }
-
-
 function createUser($username,$email,$password,$code,$NameAccout)
 {
 	 global $db;
