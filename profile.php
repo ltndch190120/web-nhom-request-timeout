@@ -1,13 +1,9 @@
 <?php
   require_once 'init.php';
-  global $db;
-  $sql="SELECT * FROM taikhoan";
-  $result=$db->query($sql);
-  $row=$result->fetch(PDO::FETCH_ASSOC);
+  $row=findUserById($_SESSION['userID']);
 if(isset($_POST['email']) && isset($_POST['sdt']) && isset($_POST['NameAccout'])
 && isset($_POST['diachi']) && isset($_POST['gender']))
 {
-    
     $file=$_FILES['avatar'];
     $sdt=$_POST['sdt'];
     $NameAccout=$_POST['NameAccout']; 
@@ -16,7 +12,6 @@ if(isset($_POST['email']) && isset($_POST['sdt']) && isset($_POST['NameAccout'])
     $gender = $_POST['gender'];
     updateAvatar($row['id'],$NameAccout,$sdt,$email,$diachi,$gender);
     header('Location: profile.php');
-
 }
 ?>	
 
@@ -45,7 +40,7 @@ if(isset($_POST['email']) && isset($_POST['sdt']) && isset($_POST['NameAccout'])
             location.assign("newpassword.html");
         }
         function go_cart() {
-            location.assign("Cartshop.html");
+            location.assign("Cartshop.php");
         }
         function go_logout() {
             location.assign("logout.php");
@@ -187,5 +182,6 @@ if(isset($_POST['email']) && isset($_POST['sdt']) && isset($_POST['NameAccout'])
         </div>
 </body>
 </html>
+
 <?php include 'footer.php'; ?>
 
