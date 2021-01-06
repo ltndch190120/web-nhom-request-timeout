@@ -1,8 +1,8 @@
 <?php
   require_once 'init.php';
+ // var_dump($_SESSION);
   $row=findUserById($_SESSION['userID']);
-if(isset($_POST['email']) && isset($_POST['sdt']) && isset($_POST['NameAccout'])
-&& isset($_POST['diachi']) && isset($_POST['gender']))
+if(isset($_POST['submit']))
 {
     $file=$_FILES['avatar'];
     $sdt=$_POST['sdt'];
@@ -125,23 +125,23 @@ if(isset($_POST['email']) && isset($_POST['sdt']) && isset($_POST['NameAccout'])
                                 <label style="width: 130px;">
                                     Họ tên
                                 </label>
-                                <input style="height: 40px;font-size: 14px;" type="NameAccout" class="form-control" id="NameAccout" name="NameAccout" 
-                                value="<?php echo $row['NameAccout'] ?>" >
+                                <input style="height: 40px;font-size: 14px;" type="NameAccout" class="form-control"  name="NameAccout" 
+                                value="<?php echo $row['NameAccout']; ?>" >
                             </div>
                             <div class="form-group" style="display: flex;height: 50px;align-items: center;">
                                 <label style="width: 130px;">
                                     Số điện thoại
                                 </label>
-                                <input style="height: 40px;font-size: 14px;" type="text" class="form-control" id="sdt" name="sdt" 
-                                value="<?php echo $row['sdt'] ?>"
+                                <input style="height: 40px;font-size: 14px;" type="text" class="form-control"  name="sdt" 
+                                value="<?php echo $row['sdt']; ?>"
                                  >
                             </div>
                             <div class="form-group" style="display: flex;height: 50px;align-items: center;">
                                 <label style="width: 130px;">
                                     Email
                                 </label>
-                                <input style="height: 40px;font-size: 14px;" type="email" class="form-control" id="email" name="email" 
-                                value="<?php echo $row['email'] ?>"
+                                <input style="height: 40px;font-size: 14px;" type="email" class="form-control"  name="email" 
+                                value="<?php echo $row['email']; ?>"
                                 >
                             </div>
                             <div style="display: flex;height: 50px;align-items: center;">
@@ -167,8 +167,8 @@ if(isset($_POST['email']) && isset($_POST['sdt']) && isset($_POST['NameAccout'])
                                 <label style="width: 130px;">
                                     Địa chỉ
                                 </label>
-                                <textarea style="height: 80px;font-size: 14px;" type="text" class="form-control"
-                                    id="diachi" name="diachi" value="<?php echo $row['diachi'] ?>" ></textarea>
+                                <input style="height: 80px;font-size: 14px;" type="text" class="form-control"
+                                     name="diachi" value="<?php echo $row['diachi']; ?>" ></input>
                             </div>         
                         </div>
                     </div>

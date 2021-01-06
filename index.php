@@ -135,13 +135,15 @@ figure:hover {
         echo "            nhất</button>";
         echo "        </div>";
         echo "        <div class='hover01'  style='display: flex;justify-content: center;margin-bottom: 10px;'>";
-        echo "        <figure>  <img width='180px' height='200px' src='https://cdn.tgdd.vn/Products/Images/42/225380/iphone-mini-do-new-600x600-600x600.jpg' />  </figure>" ;
+        echo "        <figure>  <img width='180px' height='200px' src='Image/".$row["image"]."' />  </figure>" ;
         echo "        </div>";
         echo "        <span class='nameProduct' style='margin: 10px 0px 0px 10px;display: flex;justify-content: center;font-size:16px'>" . $row["tensp"] . "</span>";
         echo "        <div style='margin: 5px 0px 0px 10px;'>";
         echo "          <strong style='color:red;'>" . $row["giatien"] . "₫</strong>";
         echo "        </div>";
         echo "        <p style='margin-left: 10px;font-size: 13px;'>Số lượt thích :" . $row["luotthich"] . "";
+        echo "        </p>";
+        echo "        <p style='margin-left: 10px;font-size: 13px;'>" . $row["motasp"] . "";
         echo "        </p>";
         echo "      </div>";
       }

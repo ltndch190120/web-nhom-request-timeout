@@ -13,6 +13,7 @@
 	}
 	else
 	{
+		
 		if(!password_verify($password,$user['password']))
 		{
 			$error='Mật khẩu không chính xác';
@@ -20,6 +21,12 @@
 		}
 		else
 		{
+			if($user['username']=="admin")
+			{
+				$_SESSION['userID']=$user['id'];
+				header('location: index2.php?page_layout=danhsach');
+				exit();
+			}
 			$_SESSION['userID']=$user['id'];
 			header('Location: index.php');
 			exit();

@@ -2,11 +2,25 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+
 function getAll(){
     global $db;
     $stmt = $db->prepare("SELECT * FROM taikhoan");
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+function insertSP($tensp,$image,$giatien,$khuyenmai,$motasp,$luotthich,$id)
+{
+    global $db;
+    $stmt = $db->prepare("INSERT INTO sanpham (tensp,giatien,khuyenmai,id,motasp,luotthich,image) VALUES (?,?,?,?,?,?,?) ");
+    $stmt->execute(array($tensp,$giatien,$khuyenmai,$id,$motasp,$luotthich,$image));
+    return findUserById($db->lastInsertId());
+}
+function updateSP($tensp,$image,$giatien,$khuyenmai,$motasp,$luotthich,$id)
+{
+    global $db;
+    $stmt = $db->prepare("UPDATE sanpham SET tensp=?,giatien=?,khuyenmai=?,id=?,motasp=?,luotthich=?,image=?");
+    $stmt->execute(array($tensp,$giatien,$khuyenmai,$id,$motasp,$luotthich,$image));
 }
 function activateUser($id)
 {
