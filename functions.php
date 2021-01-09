@@ -126,4 +126,10 @@ function updateAvatar ($userId,$NameAccout,$sdt,$email,$diachi,$gender)
 	 $stmt = $db->prepare("UPDATE taikhoan SET NameAccout=?,sdt=?,email=?,diachi=?,gender=? WHERE id=? ");
 	 $stmt->execute(array($NameAccout,$sdt,$email,$diachi,$gender,$userId));
 }
+function updateTTKH ($id,$NameAccout,$sdt,$diachi,$gender)
+{
+	 global $db;
+	 $stmt = $db->prepare("UPDATE taikhoan SET NameAccout=?,sdt=?,diachi=?,gender=? WHERE id=? ");
+	 $stmt->execute(array($NameAccout,$sdt,$diachi,$gender,$id));
+}
 ?>
