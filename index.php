@@ -2,6 +2,10 @@
 require_once 'init.php';
 ?>
 <style>
+
+  
+
+
 .hoverName:hover span  {
     color: royalblue;
 }
@@ -32,6 +36,26 @@ figure:hover {
     bottom: -36px;
     opacity: 1;
 }
+
+
+
+#pagination{
+                text-align: right;
+                margin-top: 15px;
+            }
+            .page-item{
+                border: 1px solid #ccc;
+                padding: 5px 9px;
+                color: #000;
+            }
+            .current-page{
+                background: #000;
+                color: #FFF;
+            }
+
+
+
+
 </style>
 <?php include 'Header.php'; ?>
 <div style="background-color: #c9c8c5;height: 1500px;font-size: 14px;">
@@ -116,17 +140,26 @@ figure:hover {
       die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT * FROM sanpham";
-    $result = $conn->query($sql);
+    // phân trang 
+    $item_per_page = !empty($_GET['per_page'])?$_GET['per_page']:4;
+    $current_page = !empty($_GET['page'])?$_GET['page']:1; //Trang hiện tại
+    $offset = ($current_page - 1) * $item_per_page;
+    $products = mysqli_query($conn, "SELECT * FROM `sanpham` ORDER BY `masp` ASC  LIMIT " . $item_per_page . " OFFSET " . $offset);
+    $totalRecords = mysqli_query($conn, "SELECT * FROM `sanpham`");
+    $totalRecords = $totalRecords->num_rows;
+    $totalPages = ceil($totalRecords / $item_per_page);
+    //// end 
+    //$sql = "SELECT * FROM sanpham";
+    //$result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
+    if ($products->num_rows > 0) {
       // output data of each row
       echo "  <div style='background-color: white;margin-top: 20px;' >";
       echo "    <span style='margin-left: 15px;font-size: 20px;'>Sản phẩm mới nhất<i style='color: red;font-size: 30px;margin-left: 5px;' class='material-icons'>&#xe05e;</i> ";
       echo "    </span>";
       echo "    <hr>";
       echo "    <div style='display: flex; flex-wrap: wrap;justify-content: space-between;'>";
-      while ($row = $result->fetch_assoc()) {
+      while ($row = $products->fetch_assoc()) {
 
 
         echo "      <div class='hoverName' style='height:400px ;width: 18%;outline: 0.5px solid #b9c4bc;outline-offset: -1px;margin: 5px 5px 5px 5px'>";
@@ -158,6 +191,9 @@ figure:hover {
     }
 
     $conn->close();
+    ?>
+    <?php
+      include './pagination.php';
     ?>
   </div>
 </div>
