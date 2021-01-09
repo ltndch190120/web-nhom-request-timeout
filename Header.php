@@ -4,7 +4,8 @@ global $db;
 $sql = "SELECT * FROM taikhoan";
 $result = $db->query($sql);
 $row = $result->fetch(PDO::FETCH_ASSOC);
-
+// session_destroy();
+// die();
 ?>
 <html lang="en">
 

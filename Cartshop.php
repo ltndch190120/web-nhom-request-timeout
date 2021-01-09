@@ -1,5 +1,12 @@
 <?php include 'Header.php';
-$title='Giỏ Hàng';
+  require_once 'connect.php';
+//   $sql="SELECT * FROM sanpham inner join taikhoan on sanpham.id=taikhoan.id";
+//   $query=mysqli_query($connect,$sql);
+//   $row=mysqli_fetch_assoc($query);
+  $cart=(isset($_SESSION['cart']))? $_SESSION['cart'] : [];
+//   echo "<pre>";
+//  print_r($cart);
+
 ?>
     <script>
         function go_login() {
@@ -79,8 +86,9 @@ $title='Giỏ Hàng';
             margin: 0;
         }
     </style>
+      
 
-
+  
         <div style="background-color: #c9c8c5;">
             <div style="margin: 0px 5% 0px 5%;">
                 <div>
@@ -90,68 +98,38 @@ $title='Giỏ Hàng';
                 <div
                     style="height: 800px; background-color: white;border-radius: 10px;display: flex;padding: 50px 50px 50px 50px;">
                     <div style="flex: 7;margin-right: 50px;display: flex;flex-direction: column;">
-                        <div style="height: 200px ;margin-bottom: 20px;background-color: lightsteelblue;display: flex;">
+                   <?php foreach ($cart as $key => $value): ?>
+                         <div style="height: 200px ;margin-bottom: 20px;background-color: lightsteelblue;display: flex;">
                             <div style="flex: 2.5;display: flex; justify-content: center;align-items: center; ">
                                 <img style="height: 160px;width: 160px;"
-                                    src="https://cdn.tgdd.vn/Products/Images/42/220654/TimerThumb/oppo-a92-(19).jpg">
+                                src="Image/<?php echo $value['image']?>">
                             </div>
                             <div style="flex: 7.5;padding: 30px 10px 10px 10px;">
                                 <div style="height: 60px;display: flex;">
-                                    <p style="font-size: 17px;flex: 6;display: flex;align-items: center;">iPhone 13 Pro
-                                        MAX</p>
+                                    <p style="font-size: 17px;flex: 6;display: flex;align-items: center;"><?php echo $value['tensp'] ?>
+                                        </p>
                                     <div
                                         style="flex: 4;display: flex;justify-content: space-evenly;align-items: center;">
-                                        <label style="color: red;font-size: 16;margin: 0;">5.000.000đ</label>
-                                        <div class="buttons_added">
-                                            <script src="Function.js"></script>
-
-                                            <input class="minus is-form" type="button" value="-">
-                                            <input aria-label="quantity" class="input-qty" max="10" min="1" name=""
-                                                id="inc" type="number" value="1">
-                                            <input  class="plus is-form" type="button" value="+">
-                                        </div>
-
+                                        <label style="color: red;font-size: 16;margin: 0;">Giá tiền: <?php echo $value['giatien'] ?></label>
+                                        <form action="cart.php"> 
+                                        <input type="hidden" name="action" value="update">
+                                        <input type="hidden" name="id" value="<?php echo $value['masp'] ?>">
+                                            <td><input type="text" name="quantity" value="<?php echo $value['quantity'] ?>">
+                                             <button type="submit">Cập nhật</button>
+                                             </td>
+                                        </form>
+    
                                     </div>
                                 </div>
                                 <div>
-                                    <p style="font-size: 12px;color: teal;margin-top: 20px;">
+                                    <a style="font-size: 12px;color: black;margin-top: 20px;" 
+                                    href="cart.php?id=<?php echo $value['masp'] ?>&action=delete" title="" class="btn btn-danger">
                                         Xóa khỏi giỏ
-                                    </p>
+                                    </a>
                                 </div>
-
                             </div>
                         </div>
-                        <div style="height: 200px ;margin-bottom: 20px;background-color: lightsteelblue;display: flex;">
-                            <div style="flex: 2.5;display: flex; justify-content: center;align-items: center; ">
-                                <img style="height: 160px;width: 160px;"
-                                    src="https://cdn.tgdd.vn/Products/Images/42/220654/TimerThumb/oppo-a92-(19).jpg">
-                            </div>
-                            <div style="flex: 7.5;padding: 30px 10px 10px 10px;">
-                                <div style="height: 60px;display: flex;">
-                                    <p style="font-size: 17px;flex: 6;display: flex;align-items: center;">iPhone 13 Pro
-                                        MAX</p>
-                                    <div
-                                        style="flex: 4;display: flex;justify-content: space-evenly;align-items: center;">
-                                        <label style="color: red;font-size: 16;">5.000.000đ</label>
-                                        <div class="buttons_added">
-                                            <script src="Function.js"></script>
-
-                                            <input  class="minus is-form" type="button" value="-">
-                                            <input aria-label="quantity" class="input-qty" max="10" min="1" name=""
-                                                id="inc" type="number" value="1">
-                                            <input  class="plus is-form" type="button" value="+">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div>
-                                    <p style="font-size: 12px;color: teal;margin-top: 20px;">
-                                        Xóa khỏi giỏ
-                                    </p>
-                                </div>
-
-                            </div>
-                        </div>
+                        <?php endforeach ?>    
                     </div>
                     <div style="flex: 3;">
                         <div style="height: 200px;background-color: #eddbda;">

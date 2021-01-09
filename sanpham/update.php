@@ -69,16 +69,7 @@ if($connect)
              <label for="">Lượt thích</label>
              <input type="number" name="luotthich"  class="form-control" required value="<?php echo $row_up['luotthich'];?>">
          </div>
-         <div class="form-group">
-             <label for="">Người mua</label>
-             <select class="form-control" name="id">
-             <?php
-                 while($row_user=mysqli_fetch_assoc($query_user))
-                 {?>
-                      <option value="<?php echo $row_user['id'];?>"><?php echo $row_user['username']; ?></option>  
-               <?php }?>
-             </select>
-        ` </div>
+        
           <button name="sbm" class="btn btn-success" type="submit">Sửa</button>
          </form>
          </div>

@@ -29,7 +29,7 @@
                         <th>Khuyến mãi</th>
                         <th>Mô tả sản phẩm</th>
                         <th>Lượt thích</th>
-                        <th>Người mua</th>
+                        <th>Người sửa</th>
                         <th>Sửa</th>
                         <th>Xóa</th>
                      </tr>

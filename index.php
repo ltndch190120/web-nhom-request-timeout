@@ -145,7 +145,11 @@ figure:hover {
         echo "        </p>";
         echo "        <p style='margin-left: 10px;font-size: 13px;'>" . $row["motasp"] . "";
         echo "        </p>";
+        echo "        <div style='margin: 5px 0px 0px 10px;'>";
+        echo "          <a name='sbm' class='btn btn-primary' href='cart.php?id=".$row["masp"]."' type='submit'>Mua</a>";
+        echo "        </div>";
         echo "      </div>";
+        
       }
       echo "    </div>";
       echo " </div> ";

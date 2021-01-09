@@ -55,7 +55,7 @@ if($connect)
              <input type="number" name="luotthich"  class="form-control" required>
          </div>
          <div class="form-group">
-             <label for="">Người mua</label>
+             <label for="">Người sửa</label>
              <select class="form-control" name="id">
              <?php
                  while($row_user=mysqli_fetch_assoc($query_user))
