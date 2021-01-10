@@ -101,13 +101,13 @@
             echo  "</figure>";
             echo  "<div style='display: flex;margin-left: 15%;margin-right: 15%; justify-content: space-evenly;'>";
             echo  "<figure style='border-width: 1px;border-style: solid;border-radius: 4%;border-color: gray; margin: 0 0 0 0;'>";
-            echo  "<img width='80px' height='80px' src='Image/ip11mini1s.jpg' />";
+            echo  "<img width='80px' height='80px' src='Image/" . $row['image1'] . "' />";
             echo  "</figure>";
             echo  "<figure style='border-width: 1px;border-style: solid;border-radius: 4%;border-color: gray; margin: 0 0 0 0;'>";
-            echo  "<img width='80px' height='80px' src='Image/ip11mini1s.jpg' />";
+            echo  "<img width='80px' height='80px' src='Image/" . $row['image2'] . "' />";
             echo  "</figure>";
             echo  "<figure style='border-width: 1px;border-style: solid;border-radius: 4%;border-color: gray; margin: 0 0 0 0;'>";
-            echo  "<img width='80px' height='80px' src='Image/ip11mini1s.jpg' />";
+            echo  "<img width='80px' height='80px' src='Image/" . $row['image3'] . "' />";
             echo  "</figure>";
             echo  "</div>";
             echo  "</div>";

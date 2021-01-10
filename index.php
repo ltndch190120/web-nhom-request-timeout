@@ -277,13 +277,12 @@ require_once 'init.php';
         echo "                   <strong style='color:red;'>" . $row["giatien"] . "đ</strong>";
         echo "                </div>";
         echo "                <p style='margin-left: 10px;font-size: 13px;'>Số lượt thích :" . $row["luotthich"] . " </p>";
-        echo "                <div style='display: flex;justify-content: space-evenly'>";
+        echo "                <div style='display: flex;justify-content: space-evenly;margin-top:20px'>";
         echo "                   <a name='sbm'  href='cart.php?id=" . $row["masp"] . "' type='submit' style='height: 35px;display: flex;flex-direction: column;justify-content: center;align-items: center' type='button' class='btn btn-warning'>";
 
         echo "                      <label style='color: white;margin: 0px'> Mua Ngay</label>";
         echo "                      <span style='font-size: 10px;'>Giao Tận nhà  </span>";
         echo "                   </a>";
-        echo "                      <a  class='btn btn-primary' href='detail.php?id=" . $row["masp"] . "' type='submit' style='height: 35px;display: flex;flex-direction: column;justify-content: center;align-items: center' type='button' class='btn btn-warning'>Chi tiết </a>";
         echo "                </div>";
         echo "        </div>";
         echo "     </div>";

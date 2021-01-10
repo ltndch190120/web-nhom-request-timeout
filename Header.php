@@ -44,6 +44,8 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
             location.assign("logout.php");
         }
 
+
+ 
     </script>
 
 </head>
