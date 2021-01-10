@@ -28,104 +28,93 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
         function go_login() {
             location.assign("Login.html");
         }
+
         function go_register() {
             location.assign("register.html");
         }
+
         function go_chang() {
             location.assign("Changpassword.html");
         }
+
         function go_cart() {
             location.assign("Cartshop.php");
         }
+
         function go_profile() {
             location.assign("profile.php");
         }
+
         function go_logout() {
             location.assign("logout.php");
         }
-
-
- 
     </script>
+
+    <style>
+        @media only screen and (max-width:620px) {
+            .fontHeader {
+                font-size: 12px;
+            }
+
+        }
+    </style>
 
 </head>
 
 <body>
     <div style="font-family: Arial, Helvetica, sans-serif;">
-        <div
-            style="display: flex;width: 100%; height: 40px;padding-left: 5%;padding-right: 5%;background-color: rgb(24, 158, 255);font-size: 14px;">
+        <div style="display: flex;width: 100%; height: 40px;padding-left: 5%;padding-right: 5%;background-color: rgb(24, 158, 255);font-size: 14px;">
             <div style="flex:1">
                 <a href="index.php">
                     <img style="height: 100%;width: 100%;" src="Image/supperlogo1.png" />
                 </a>
             </div>
             <div style="flex:2 ;display: flex; justify-content: center; align-items: center;position: relative;">
-                <input type="text" placeholder="Bạn cần tìm gì"
-                    style="width: 100% ; height: 90%;margin-left: 3px; border-width: 1;border-radius: 5px;border-color: white;border-style: solid;outline: none; ">
-                <span style="position: absolute;right: 15px;top: 10px;font-size: 20px;"
-                    class="glyphicon glyphicon-search"> </span>
+                <input type="text" placeholder="Bạn cần tìm gì" style="width: 100% ; height: 90%;margin-left: 3px; border-width: 1;border-radius: 5px;border-color: white;border-style: solid;outline: none; ">
+                <span style="position: absolute;right: 15px;top: 10px;font-size: 20px;" class="glyphicon glyphicon-search"> </span>
             </div>
-            <?php if($_SESSION): ?>
-            <div style="flex:1 ;display: flex; justify-content: center; align-items: center;">
-                <button onclick="go_cart()" 
-                    style="width: 90%;height: 90%;background-color: rgb(24, 158, 255);color: white; border-width: 1;border-radius: 5px;border-color: white;border-style: solid;outline: none;">
-                    <span style="font-size: 20px;" class="	glyphicon glyphicon-shopping-cart"></span>
-                    Giỏ Hàng
-                </button>
+            <?php if ($_SESSION) : ?>
+                <div style="flex:1 ;display: flex; justify-content: center; align-items: center;">
+                    <button onclick="go_cart()" style="width: 90%;height: 90%;background-color: rgb(24, 158, 255);color: white; border-width: 1;border-radius: 5px;border-color: white;border-style: solid;outline: none;">
+                        <span style="font-size: 20px;" class="fontHeader" class="	glyphicon glyphicon-shopping-cart"></span>
+                        <span class="fontHeader">Giỏ Hàng</span>
+                    </button>
 
-            </div>
-            <div class="hoveritemmenu"
-                style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
-                <b>Lịch Sử Mua Hàng</b>
-            </div>
-            <div class="hoveritemmenu" onclick="go_profile()"
-                style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
-                <b>Cá Nhân </b>
-            </div>
-            <div class="hoveritemmenu" onclick="go_logout()"
-                style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
-                <b>Đăng Xuất </b>
-            </div>
-            <?php else: ?>
-            <div class="hoveritemmenu" onclick="go_login()"
-                style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
-                <b>Đăng Nhập </b>
-            </div>
-            <div class="hoveritemmenu" onclick="go_register()"
-                style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
-                <b>Đăng Ký </b>
-            </div>
-            <?php endif; ?> 
+                </div>
+                <div class="hoveritemmenu" style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
+                    <b class="fontHeader">Lịch Sử Mua Hàng</b>
+                </div>
+                <div class="hoveritemmenu" onclick="go_profile()" style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
+                    <b class="fontHeader">Cá Nhân </b>
+                </div>
+                <div class="hoveritemmenu" onclick="go_logout()" style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
+                    <b class="fontHeader">Đăng Xuất </b>
+                </div>
+            <?php else : ?>
+                <div class="hoveritemmenu" onclick="go_login()" style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
+                    <b class="fontHeader">Đăng Nhập </b>
+                </div>
+                <div class="hoveritemmenu" onclick="go_register()" style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
+                    <b class="fontHeader">Đăng Ký </b>
+                </div>
+            <?php endif; ?>
         </div>
-        <div
-            style="display: flex;width: 100%; height: 40px;padding-left: 5%;padding-right: 5%;background-color: yellow;">
-            <div class="hovermenu"
-                style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
+        <div style="display: flex;width: 100%; height: 40px;padding-left: 5%;padding-right: 5%;background-color: yellow;">
+            <div class="hovermenu" style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
                 <span style="color: gray; font-size: 30px;margin-right: 5px;" class="fab fa-apple"> </span>
                 <span style=" font-size: 20px;">iPhone</span>
             </div>
-            <div class="hovermenu"
-                style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
+            <div class="hovermenu" style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
                 <p style="margin: 0%;font-size: 20px;color: blue;">SamSung</p>
             </div>
-            <div class="hovermenu"
-                style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
+            <div class="hovermenu" style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
                 <p style="margin: 0%;font-size: 20px;"> Xiaomi </p>
             </div>
-            <div class="hovermenu"
-                style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
+            <div class="hovermenu" style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
                 <p style="margin: 0%;font-size: 20px;color: green;"> OPPO</p>
             </div>
-            <div class="hovermenu"
-                style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
+            <div class="hovermenu" style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
                 <p style="margin: 0%;font-size: 20px;"> RealMe</p>
             </div>
-            <div class="hovermenu"
-                style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
-
-                <span style="font-size: 23px;margin-right: 5px;" class="fas fa-headphones-alt"></span>
-                <span style="font-size: 20px;">Phụ Kiện</span>
-            </div>
+       
         </div>
-
-  
