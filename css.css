@@ -77,7 +77,8 @@
 
 /* image hover effect */
 
-.column {
+
+/* .column {
     margin: 15px 15px 0;
     padding: 0;
 }
@@ -129,4 +130,4 @@ figure {
 figure:hover {
     bottom: -36px;
     opacity: 1;
-}
+} */

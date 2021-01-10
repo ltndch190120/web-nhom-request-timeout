@@ -108,7 +108,7 @@ require_once 'init.php';
   }
 </style>
 <?php include 'Header.php'; ?>
-<div style="background-color: #c9c8c5;height: 1500px;font-size: 14px;">
+<div id="poll" style="background-color: #c9c8c5;height: 1500px;font-size: 14px;">
   <div style="margin-right: 5%;margin-left: 5%;padding-top: 10px; height: 210px;">
     <div style=" display: flex;">
       <div style="flex: 2;background-color: sandybrown;margin-right: 10px;">
@@ -177,7 +177,7 @@ require_once 'init.php';
     </div> -->
 
 
-    <script>
+    <!-- <script>
       function loadDoc() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -187,10 +187,27 @@ require_once 'init.php';
           }
         };
 
-        xhttp.open("GET", "Detail.php", true);
+        xhttp.open("GET", "Detail.php?", true);
         xhttp.send();
       }
+    </script> -->
+
+    <script>
+      function getProduct(int) {
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("poll").innerHTML = this.responseText;
+          }
+        }
+        xmlhttp.open("GET", "Detail.php?id=" + int, true);
+        xmlhttp.send();
+
+      }
     </script>
+
 
     <?php
     $servername = "localhost";
@@ -218,6 +235,7 @@ require_once 'init.php';
     //$result = $conn->query($sql);
 
     if ($products->num_rows > 0) {
+
       // output data of each row
       echo "  <div style='background-color: white;margin-top: 20px;' >";
       echo "    <span style='margin-left: 15px;font-size: 20px;'>Sản phẩm mới nhất<i style='color: red;font-size: 30px;margin-left: 5px;' class='material-icons'>&#xe05e;</i> ";
@@ -227,75 +245,54 @@ require_once 'init.php';
       while ($row = $products->fetch_assoc()) {
 
 
-        // echo "    <div  style='width: 18%;outline: 0.5px solid #b9c4bc;outline-offset: -1px;margin: 5px 5px 5px 5px'>";
-        // echo "        <div>";
-        // echo "          <button style='margin: 7px 0px 10px 10px;' type='button' class='btn btn-warning''>Mới";
-        // echo "            nhất</button>";
-        // echo "        </div>";
-        // echo "        <div class='hover01 '  style='display: flex;justify-content: center;'>";
-        // echo "        <figure style='display: flex;justify-content: center;height: 220px' >  <img width='180px' height='200px' src='Image/" . $row["image"] . "' />  </figure>";
-        // echo "        </div>";
-        // echo "        <span class='nameProduct' style='margin: 10px 0px 0px 10px;display: flex;justify-content: center;font-size:16px'>" . $row["tensp"] . "</span>";
-        // echo "        <div style='margin: 5px 0px 0px 10px;'>";
-        // echo "        <strong style='color:red;'>" . $row["giatien"] . "₫</strong>";
-        // echo "        </div>";
-        // echo "        <p style='margin-left: 10px;font-size: 13px;'>Số lượt thích :" . $row["luotthich"] . "";
-        // echo "        </p>";
-        // echo "        <p style='margin-left: 10px;font-size: 13px;'>" . $row["motasp"] . "";
-        // echo "        </p>";
-        // echo "        <div style='margin: 5px 0px 0px 10px;'>";
-        // echo "        <a   class='btn btn-primary' href='detail.php?id=" . $row["masp"] . "' type='submit'>Xem chi Tiết</a> ";
-        // echo "        <a name='sbm' class='btn btn-primary' href='cart.php?id=" . $row["masp"] . "' type='submit'>Mua</a>";
-        // echo "        </div>  ";
-        // echo "      </div>  ";
+
+        echo "       <div id='getId'  onclick='getProduct(this.value)' value='" . $row["masp"] . "'  class='hoverOpacity' >";
 
 
-        echo "       <div   class='hoverOpacity' >";
-        echo "    <div   class='hoverOpacity0'>";
-        echo "     <div>";
-        echo "       <button style='margin: 7px 0px 10px 10px;' type='button' class='btn btn-warning'>Mới";
+        echo "          <div   class='hoverOpacity0'>";
+        echo "              <div>";
+        echo "                <button style='margin: 7px 0px 10px 10px;' type='button' class='btn btn-warning'>Mới";
         echo "              nhất</button>";
-        echo "      </div>";
-        echo " <div class='hover01 '  style='display: flex;justify-content: center;'>";
-        echo "       <figure style='display: flex;justify-content: center;height: 220px'>";
-        echo "       <img width='180px' height='200px' src='Image/" . $row["image"] . "' />";
-        echo "      </figure>";
-        echo "    </div>";
-        echo "    <span style='margin: 10px 0px 0px 10px;'>" . $row["tensp"] . "</span>";
-        echo "     <div style='margin: 5px 0px 0px 10px;'>";
-        echo "        <strong style='color:red;'>" . $row["giatien"] . "đ</strong>";
-        echo "      </div>";
-        echo "      <p style='margin-left: 10px;font-size: 13px;'>Số lượt thích :" . $row["luotthich"] . "  </p>";
-        echo "      </div>";
-        echo "     <div class='hoverOpacity1'>";
-        echo "       <div>";
-        echo "         <button style='margin: 7px 0px 10px 10px;' type='button' class='btn btn-warning'>Mới";
-        echo "           nhất</button>";
-        echo "       </div>";
-        echo "        <div class='hover01 ' style='display: flex;justify-content: center;'>";
-        echo "         <figure style='display: flex;justify-content: center;height: 220px'>";
-        echo "           <img width='180px' height='200px' src='Image/" . $row["image"] . "' />";
-        echo "         </figure>";
-        echo "       </div>";
+        echo "               </div>";
+        echo "                  <div class='hover01 '  style='display: flex;justify-content: center;'>";
+        echo "                      <figure style='display: flex;justify-content: center;height: 220px'>";
+        echo "                      <img width='180px' height='200px' src='Image/" . $row["image"] . "' />";
+        echo "                      </figure>";
+        echo "                  </div>";
+        echo "                  <span style='margin: 10px 0px 0px 10px;'>" . $row["tensp"] . "</span>";
+        echo "                  <div style='margin: 5px 0px 0px 10px;'>";
+        echo "                      <strong style='color:red;'>" . $row["giatien"] . "đ</strong>";
+        echo "                   </div>";
+        echo "                 <p style='margin-left: 10px;font-size: 13px;'>Số lượt thích :" . $row["luotthich"] . "  </p>";
+        echo "         </div>";
+        echo "         <div  class='hoverOpacity1'>";
+        echo "              <div>";
+        echo "                  <button style='margin: 7px 0px 10px 10px;' type='button' class='btn btn-warning'>Mới";
+        echo "                    nhất</button>";
+        echo "               </div>";
+        echo "               <div class='hover01 ' style='display: flex;justify-content: center;'>";
+        echo "                 <figure style='display: flex;justify-content: center;height: 220px'>";
+        echo "                   <img width='180px' height='200px' src='Image/" . $row["image"] . "' />";
+        echo "                 </figure>";
+        echo "               </div>";
         // echo "        <div>";
         // echo "         <img style='height: 50px;width: 50px' src='https://scr.vn/wp-content/uploads/2020/08/H%C3%ACnh-v%E1%BA%BD-nh%E1%BB%8F-d%E1%BB%85-th%C6%B0%C6%A1ng.jpg' />";
         // echo "       </div>";
-        echo "       <span style='margin: 10px 0px 0px 10px;'>" . $row["tensp"] . "</span>";
-        echo "       <div style='margin: 5px 0px 0px 10px;'>";
-        echo "          <strong style='color:red;'>" . $row["giatien"] . "đ</strong>";
-        echo "       </div>";
-        echo "       <p style='margin-left: 10px;font-size: 13px;'>Số lượt thích :" . $row["luotthich"] . " </p>";
-        echo "        <div style='display: flex;justify-content: space-evenly'>";
-        echo "        <a name='sbm'  href='cart.php?id=" . $row["masp"] . "' type='submit' style='height: 35px;display: flex;flex-direction: column;justify-content: center;align-items: center' type='button' class='btn btn-warning'>";
-    // echo "        <a name='sbm' class='btn btn-primary' href='cart.php?id=" . $row["masp"] . "' type='submit'>Mua</a>";
+        echo "                <span style='margin: 10px 0px 0px 10px;'>" . $row["tensp"] . "</span>";
+        echo "                <div style='margin: 5px 0px 0px 10px;'>";
+        echo "                   <strong style='color:red;'>" . $row["giatien"] . "đ</strong>";
+        echo "                </div>";
+        echo "                <p style='margin-left: 10px;font-size: 13px;'>Số lượt thích :" . $row["luotthich"] . " </p>";
+        echo "                <div style='display: flex;justify-content: space-evenly'>";
+        echo "                   <a name='sbm'  href='cart.php?id=" . $row["masp"] . "' type='submit' style='height: 35px;display: flex;flex-direction: column;justify-content: center;align-items: center' type='button' class='btn btn-warning'>";
+        // echo "        <a name='sbm' class='btn btn-primary' href='cart.php?id=" . $row["masp"] . "' type='submit'>Mua</a>";
 
-        echo "           <label style='color: white;margin: 0px'> Mua Ngay</label>";
-        echo "           <span style='font-size: 10px;'>Giao Tận nhà  </span>";
-        echo "        </a>";
-        echo "          <a  class='btn btn-primary' href='detail.php?id=" . $row["masp"] . "' type='submit' style='height: 35px;display: flex;flex-direction: column;justify-content: center;align-items: center' type='button' class='btn btn-warning'>Chi tiết </a>";
-        echo "       </div>";
- 
-        echo "      </div>";
+        echo "                      <label style='color: white;margin: 0px'> Mua Ngay</label>";
+        echo "                      <span style='font-size: 10px;'>Giao Tận nhà  </span>";
+        echo "                   </a>";
+        echo "                      <a  class='btn btn-primary' href='detail.php?id=" . $row["masp"] . "' type='submit' style='height: 35px;display: flex;flex-direction: column;justify-content: center;align-items: center' type='button' class='btn btn-warning'>Chi tiết </a>";
+        echo "                </div>";
+        echo "        </div>";
         echo "     </div>";
       }
       echo "    </div>";
@@ -311,3 +308,5 @@ require_once 'init.php';
     ?>
   </div>
 </div>
+
+<?php include 'footer.php'; ?>

@@ -1,4 +1,4 @@
-<div
+            <div
             style="display: flex;justify-content: space-around;padding-left: 5%;padding-right: 5%;margin-top: 15px;margin-bottom: 15px;font-size: 14px;font-family: Arial, Helvetica, sans-serif;">
             <div style="flex: 1;color: #288ad6;">
                 <li style="list-style: none;">Điện Thoại Plus-Mua sắm uy tín</li>
