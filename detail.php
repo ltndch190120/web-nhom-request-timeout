@@ -55,32 +55,27 @@
         color: white;
     }
 </style>
-
-<div style='margin-right: 5%;margin-left: 5%;'>
+<div style='margin-right: 5%;margin-left: 5%;background-color: white'>
     <?php
 
-    require_once 'connect.php';
-
     session_start();
+    echo "<pre>";
 
+    // print_r($_SESSION['cart']);
+    require_once 'connect.php';
+    // echo isset($_GET['id']);
+   // console.log(isset($_GET['id']));
     if (isset($_GET['id'])) {
+        // echo 'ham lay id';
+        //echo console.log('ham lay id');
         $id = $_GET['id'];
     }
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "dack";
+    
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    $sql = "SELECT * FROM sanpham  where masp=" . $id;
-    $sql1 = "SELECT * FROM thongsokythuat  where masp=" . $id;
-    $result = $conn->query($sql);
 
+    $sql = "SELECT * FROM sanpham  where masp= $id";
+    $sql1 = "SELECT * FROM thongsokythuat  where masp= $id";
+    $result=mysqli_query($connect,$sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $masp = $row['masp'];
@@ -91,7 +86,6 @@
             $id = $row['id'];
             $luotthich = $row['luotthich'];
             $image = $row['image'];
-            // echo  "<div style='margin-right: 5%;margin-left: 5%;'>";
             echo  "<div>";
             echo  "<span style='font-size: 25px;'>" . $row['tensp'] . "";
             echo  "</span>";
@@ -103,17 +97,17 @@
             echo  "<div style='flex: 1.3;padding-right: 2%;'>";
             echo  "<figure style='display: flex;flex-direction: column;justify-content: center;align-items: center;'>";
             echo  "<img width='350px' height='350px' src='Image/" . $row['image'] . " ' />";
-            echo  "<figcaption style='justify-content: center;display: flex;align-items: center; height: 30px;'>Hình ảnh : điện thoại 1</figcaption>";
+            echo  "<figcaption style='justify-content: center;display: flex;align-items: center; height: 30px;'>Hình ảnh : " . $row['tensp'] . "</figcaption>";
             echo  "</figure>";
             echo  "<div style='display: flex;margin-left: 15%;margin-right: 15%; justify-content: space-evenly;'>";
             echo  "<figure style='border-width: 1px;border-style: solid;border-radius: 4%;border-color: gray; margin: 0 0 0 0;'>";
-            echo  "<img width='80px' height='80px' src='Image/ip11mini1s.jpg' />";
+            echo  "<img width='80px' height='80px' src='Image/" . $row['image1'] . "' />";
             echo  "</figure>";
             echo  "<figure style='border-width: 1px;border-style: solid;border-radius: 4%;border-color: gray; margin: 0 0 0 0;'>";
-            echo  "<img width='80px' height='80px' src='Image/ip11mini1s.jpg' />";
+            echo  "<img width='80px' height='80px' src='Image/" . $row['image2'] . "' />";
             echo  "</figure>";
             echo  "<figure style='border-width: 1px;border-style: solid;border-radius: 4%;border-color: gray; margin: 0 0 0 0;'>";
-            echo  "<img width='80px' height='80px' src='Image/ip11mini1s.jpg' />";
+            echo  "<img width='80px' height='80px' src='Image/" . $row['image3'] . "' />";
             echo  "</figure>";
             echo  "</div>";
             echo  "</div>";
@@ -156,11 +150,10 @@
             echo  "<p style='font-size: 21;margin:0 0 10 0;'>Thông số kỹ thuật</p>";
             echo  "<ul style='padding: 0;margin: 8 0 8 0;'>";
             echo  "<hr style='margin: 0;border-style: solid;border-width: 0;height: 0.5px;background-color: #bbc4c7;'>";
+            $result=mysqli_query($connect,$sql1);
 
-            $result = $conn->query($sql1);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-
                     echo  "<li class='li_tt_details'>";
                     echo  "<span> Màn hình:";
                     echo  "</span>";
@@ -229,16 +222,15 @@
                 echo "0 results";
             }
             echo  "<hr style='margin: 0;border-style: solid;border-width: 0;height: 0.5px;background-color: #bbc4c7;'>";
-            // echo  "</div>";
         }
     } else {
         echo "0 results";
     }
-    $conn->close();
+   $connect->close();
     ?>
 </div>
-
-<!-- <div style="margin-right: 5%;margin-left: 5%; background-color: white;">
+<!-- 
+<div style="margin-right: 5%;margin-left: 5%; background-color: white;">
         <div>
             <span style="font-size: 25px;">
                 Điện Thoại 1
@@ -251,21 +243,20 @@
         <hr style="margin-left: 30px;margin-right: 30px ; border-style: solid;border-width: 0;height: 1.5px;background-color: gray;">
         <div style="display: flex;margin-top: 20px;">
             <div style="flex: 1.3;padding-right: 2%;    ">
-                <figure style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+                <figure style="display: block;justify-content: center;align-items: center;">
                     <img width="350px" height="350px" src="https://cdn.tgdd.vn/Products/Images/42/225380/iphone-mini-do-new-600x600-600x600.jpg" />
                     <figcaption style="justify-content: center;display: flex;align-items: center; height: 30px;">Hình ảnh : điện thoại 1</figcaption>
                 </figure>
 
                 <div style="display: flex;margin-left: 15%;margin-right: 15%; justify-content: space-evenly;">
-
                     <figure style="border-width: 1px;border-style: solid;border-radius: 4%;border-color: gray; margin: 0 0 0 0;">
-                        <img width="80px" height="80px" src="Image/ip11mini1s.jpg" />
+                        <img width="80px" height="80px" src="Image/iphone_12.png" />
                     </figure>
                     <figure style="border-width: 1px;border-style: solid;border-radius: 4%;border-color: gray; margin: 0 0 0 0;">
-                        <img width="80px" height="80px" src="Image/ip11mini1s.jpg" />
+                        <img width="80px" height="80px" src="Image/iphone_12.png" />
                     </figure>
                     <figure style="border-width: 1px;border-style: solid;border-radius: 4%;border-color: gray; margin: 0 0 0 0;">
-                        <img width="80px" height="80px" src="Image/ip11mini1s.jpg" />
+                        <img width="80px" height="80px" src="Image/iphone_12.png" />
                     </figure>
                 </div>
             </div>
@@ -406,5 +397,4 @@
             </div>
         </div>
         <hr style="margin: 0;border-style: solid;border-width: 0;height: 0.5px;background-color: #bbc4c7;">
-
     </div> -->

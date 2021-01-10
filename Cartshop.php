@@ -8,7 +8,8 @@ include 'header.php';
 //   $row=mysqli_fetch_assoc($query);
   $cart=(isset($_SESSION['cart']))? $_SESSION['cart'] : [];
 //   echo "<pre>";
-//  print_r($cart['Nam']);
+
+//  print_r($_SESSION['cart']);
 // $sql="SELECT * FROM sanpham inner join taikhoan on sanpham.id=taikhoan.id";
 // $query=mysqli_query($connect,$sql);
 // $row=mysqli_fetch_assoc($query);
