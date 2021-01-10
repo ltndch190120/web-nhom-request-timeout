@@ -70,18 +70,17 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
                     <img style="height: 100%;width: 100%;" src="Image/supperlogo1.png" />
                 </a>
             </div>
-            <div style="flex:2 ;display: flex; justify-content: center; align-items: center;position: relative;">
-<!-- <<<<<<< HEAD
+            <div style="flex:2 ;">
+                <!-- <<<<<<< HEAD
                 <input type="text" placeholder="Bạn cần tìm gì" style="width: 100% ; height: 90%;margin-left: 3px; border-width: 1;border-radius: 5px;border-color: white;border-style: solid;outline: none; ">
                 <span style="position: absolute;right: 15px;top: 10px;font-size: 20px;" class="glyphicon glyphicon-search"> </span>
 ======= -->
-                <form id ="product-search-form" method="GET" action="" >
-                    <input type="text" placeholder="Bạn cần tìm gì" name="name" value = "<?=isset($_GET['name']) ? $_GET['name'] : ""?>" 
-                        style="width: 100% ; height: 90%;margin-left: 3px; border-width: 1;border-radius: 5px;border-color: white;border-style: solid;outline: none; "/>
-     
-                    <span style="position: absolute;right: 15px;top: 10px;font-size: 20px;"
-                        class="glyphicon glyphicon-search"> </span>
-                     <input  type="submit" value="Tìm" />
+                <form style="display: flex; justify-content: center; align-items: center;position: relative;margin: 0px;height: 100%;width: 100%" id="product-search-form" method="GET" action="">
+                        <input type="text" placeholder="Bạn cần tìm gì" name="name" value="<?= isset($_GET['name']) ? $_GET['name'] : "" ?>" style="width: 100% ; height: 90%;margin-left: 3px; border-width: 1;border-radius: 5px;border-color: white;border-style: solid;outline: none; " />
+
+                        <!-- <span style="position: absolute;right: 15px;top: 10px;font-size: 20px;" class="glyphicon glyphicon-search"> </span> -->
+                        <input style="position: absolute;right: 5px;top: 3px;font-size: 20px;border-color: white;background-color: white;border-style: solid  ;color: white;outline: none;   " type="submit" value="Tìm" ><span style="position: absolute;right: 15px;top: 10px;font-size: 20px;"  class="glyphicon glyphicon-search"> </span></input>
+
                 </form>
 
             </div>
@@ -128,5 +127,5 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
             <div class="hovermenu" style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
                 <p style="margin: 0%;font-size: 20px;"> RealMe</p>
             </div>
-       
+
         </div>
