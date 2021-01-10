@@ -61,6 +61,7 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
 
 </head>
 
+
 <body>
     <div style="font-family: Arial, Helvetica, sans-serif;">
         <div style="display: flex;width: 100%; height: 40px;padding-left: 5%;padding-right: 5%;background-color: rgb(24, 158, 255);font-size: 14px;">
@@ -70,8 +71,19 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
                 </a>
             </div>
             <div style="flex:2 ;display: flex; justify-content: center; align-items: center;position: relative;">
+<!-- <<<<<<< HEAD
                 <input type="text" placeholder="Bạn cần tìm gì" style="width: 100% ; height: 90%;margin-left: 3px; border-width: 1;border-radius: 5px;border-color: white;border-style: solid;outline: none; ">
                 <span style="position: absolute;right: 15px;top: 10px;font-size: 20px;" class="glyphicon glyphicon-search"> </span>
+======= -->
+                <form id ="product-search-form" method="GET" action="" >
+                    <input type="text" placeholder="Bạn cần tìm gì" name="name" value = "<?=isset($_GET['name']) ? $_GET['name'] : ""?>" 
+                        style="width: 100% ; height: 90%;margin-left: 3px; border-width: 1;border-radius: 5px;border-color: white;border-style: solid;outline: none; "/>
+     
+                    <span style="position: absolute;right: 15px;top: 10px;font-size: 20px;"
+                        class="glyphicon glyphicon-search"> </span>
+                     <input  type="submit" value="Tìm" />
+                </form>
+
             </div>
             <?php if ($_SESSION) : ?>
                 <div style="flex:1 ;display: flex; justify-content: center; align-items: center;">
