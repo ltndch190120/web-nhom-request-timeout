@@ -61,14 +61,20 @@
     session_start();
     echo "<pre>";
 
-    print_r($_SESSION['cart']);
+    // print_r($_SESSION['cart']);
     require_once 'connect.php';
+    // echo isset($_GET['id']);
+   // console.log(isset($_GET['id']));
     if (isset($_GET['id'])) {
+        // echo 'ham lay id';
+        //echo console.log('ham lay id');
         $id = $_GET['id'];
     }
     
-    $sql = "SELECT * FROM sanpham  where masp=14";
-    $sql1 = "SELECT * FROM thongsokythuat  where masp=14";
+
+
+    $sql = "SELECT * FROM sanpham  where masp= $id";
+    $sql1 = "SELECT * FROM thongsokythuat  where masp= $id";
     $result=mysqli_query($connect,$sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {

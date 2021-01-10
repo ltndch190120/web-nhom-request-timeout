@@ -193,17 +193,19 @@ require_once 'init.php';
     </script> -->
 
     <script>
-      function getProduct(int) {
-
+      function getProduct(a) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
-
           if (this.readyState == 4 && this.status == 200) {
             document.getElementById("poll").innerHTML = this.responseText;
           }
         }
-        xmlhttp.open("GET", "Detail.php?id=" + int, true);
+        console.log('ham get product');
+        console.log(a);
+        xmlhttp.open("GET", "Detail.php?id=" + a, true);   
         xmlhttp.send();
+
+
 
       }
     </script>
@@ -214,25 +216,19 @@ require_once 'init.php';
     $username = "root";
     $password = "";
     $dbname = "dack";
-
-    // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
     if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
     }
-
-    // phân trang 
     $item_per_page = !empty($_GET['per_page']) ? $_GET['per_page'] : 4;
     $current_page = !empty($_GET['page']) ? $_GET['page'] : 1; //Trang hiện tại
     $offset = ($current_page - 1) * $item_per_page;
+
     $products = mysqli_query($conn, "SELECT * FROM `sanpham` ORDER BY `masp` ASC  LIMIT " . $item_per_page . " OFFSET " . $offset);
     $totalRecords = mysqli_query($conn, "SELECT * FROM `sanpham`");
     $totalRecords = $totalRecords->num_rows;
     $totalPages = ceil($totalRecords / $item_per_page);
-    //// end 
-    //$sql = "SELECT * FROM sanpham";
-    //$result = $conn->query($sql);
+
 
     if ($products->num_rows > 0) {
 
@@ -241,12 +237,12 @@ require_once 'init.php';
       echo "    <span style='margin-left: 15px;font-size: 20px;'>Sản phẩm mới nhất<i style='color: red;font-size: 30px;margin-left: 5px;' class='material-icons'>&#xe05e;</i> ";
       echo "    </span>";
       echo "    <hr>";
-      echo "    <div style='display: flex; flex-wrap: wrap;'>";
+      echo "    <div style='display: flex; flex-wrap: wrap;margin-bottom:60px'>";
       while ($row = $products->fetch_assoc()) {
 
 
 
-        echo "       <div id='getId'  onclick='getProduct(this.value)' value='" . $row["masp"] . "'  class='hoverOpacity' >";
+        echo "       <div id='getId'  onclick='getProduct( ". $row["masp"] . ")' value='" . $row["masp"] . "'  class='hoverOpacity' >";
 
 
         echo "          <div   class='hoverOpacity0'>";
@@ -275,9 +271,7 @@ require_once 'init.php';
         echo "                   <img width='180px' height='200px' src='Image/" . $row["image"] . "' />";
         echo "                 </figure>";
         echo "               </div>";
-        // echo "        <div>";
-        // echo "         <img style='height: 50px;width: 50px' src='https://scr.vn/wp-content/uploads/2020/08/H%C3%ACnh-v%E1%BA%BD-nh%E1%BB%8F-d%E1%BB%85-th%C6%B0%C6%A1ng.jpg' />";
-        // echo "       </div>";
+   
         echo "                <span style='margin: 10px 0px 0px 10px;'>" . $row["tensp"] . "</span>";
         echo "                <div style='margin: 5px 0px 0px 10px;'>";
         echo "                   <strong style='color:red;'>" . $row["giatien"] . "đ</strong>";
@@ -285,7 +279,6 @@ require_once 'init.php';
         echo "                <p style='margin-left: 10px;font-size: 13px;'>Số lượt thích :" . $row["luotthich"] . " </p>";
         echo "                <div style='display: flex;justify-content: space-evenly'>";
         echo "                   <a name='sbm'  href='cart.php?id=" . $row["masp"] . "' type='submit' style='height: 35px;display: flex;flex-direction: column;justify-content: center;align-items: center' type='button' class='btn btn-warning'>";
-        // echo "        <a name='sbm' class='btn btn-primary' href='cart.php?id=" . $row["masp"] . "' type='submit'>Mua</a>";
 
         echo "                      <label style='color: white;margin: 0px'> Mua Ngay</label>";
         echo "                      <span style='font-size: 10px;'>Giao Tận nhà  </span>";
@@ -301,7 +294,7 @@ require_once 'init.php';
       echo "0 results";
     }
 
-    $conn->close();
+    $products->close();
     ?>
     <?php
     include './pagination.php';
