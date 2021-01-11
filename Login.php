@@ -8,7 +8,7 @@
 	$user=findUserByUsername($username);
 	if(!$user)
 	{
-		$error='Quý khách vui lòng kiểm tra lại';
+		header('Location: login.html');
 		
 	}
 	else
@@ -16,7 +16,7 @@
 		
 		if(!password_verify($password,$user['password']))
 		{
-			$error='Mật khẩu không chính xác';
+			header('Location: login.html');
 			
 		}
 		else

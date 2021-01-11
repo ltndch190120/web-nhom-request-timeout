@@ -24,13 +24,16 @@
                      <tr>
                         <th>#</th>
                         <th>Tên sản phẩm</th>
-                        <th>Ảnh sản phẩm</th>
+                        <th>Ảnh sản phẩm chính</th>
+                        <th>Ảnh sản phẩm 1</th>
+                        <th>Ảnh sản phẩm 2</th>
+                        <th>Ảnh sản phẩm 3</th>
                         <th>Giá tiền</th>
                         <th>Khuyến mãi</th>
                         <th>Mô tả sản phẩm</th>
                         <th>Lượt thích</th>
                         <th>Người sửa</th>
-                        <th>Sửa</th>
+                        
                         <th>Xóa</th>
                      </tr>
                 </thead>
@@ -45,14 +48,21 @@
                             <td>
                             <img style="width: 100px;" src="Image/<?php echo $row['image']; ?>">
                             </td>
+                            <td>
+                            <img style="width: 100px;" src="Image/<?php echo $row['image1']; ?>">
+                            </td>
+                            <td>
+                            <img style="width: 100px;" src="Image/<?php echo $row['image2']; ?>">
+                            </td>
+                            <td>
+                            <img style="width: 100px;" src="Image/<?php echo $row['image3']; ?>">
+                            </td>
                             <td><?php echo $row['giatien']; ?></td>
                             <td><?php echo $row['khuyenmai']; ?></td>
                             <td><?php echo $row['motasp']; ?></td>
                             <td><?php echo $row['luotthich']; ?></td>
                             <td><?php echo $row['username']; ?></td>
-                            <td>
-                                 <a href="index2.php?page_layout=update&id=<?php echo $row['masp'] ?>">Sửa</a>
-                             </td>
+                            
                              <td>
                                  <a onclick="return Del('<?php echo $row['tensp'] ?>')" href="index2.php?page_layout=delete&id=<?php echo $row['masp'] ?>">Xóa</a>
                              </td>

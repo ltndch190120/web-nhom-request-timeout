@@ -12,7 +12,7 @@ if($user)
       {
          activateUser($id);
          $_SESSION['userID']=$id;
-		 header('Location: Header.html');
+		 header('Location: index.php');
       }else
       {
       	$error='Mã kích hoạt không hợp lệ';

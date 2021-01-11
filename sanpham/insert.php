@@ -12,14 +12,23 @@ if($connect)
        $tensp=$_POST['tensp'];
        $image=$_FILES['image']['name'];
        $image_tmp=$_FILES['image']['tmp_name'];
+       $image1=$_FILES['image1']['name'];
+       $image_tmp1=$_FILES['image1']['tmp_name'];
+       $image2=$_FILES['image2']['name'];
+       $image_tmp2=$_FILES['image2']['tmp_name'];
+       $image3=$_FILES['image3']['name'];
+       $image_tmp3=$_FILES['image3']['tmp_name'];
        $giatien=$_POST['giatien'];
        $khuyenmai=$_POST['khuyenmai'];
        $motasp=$_POST['motasp'];
        $luotthich=$_POST['luotthich'];
        $id=$_POST['id'];
-       $sql=insertSP($tensp,$image,$giatien,$khuyenmai,$motasp,$luotthich,$id);
+       $sql=insertSP($tensp,$image,$image1,$image2,$image3,$giatien,$khuyenmai,$motasp,$luotthich,$id);
        $query=mysqli_query($connect,$sql);
        move_uploaded_file($image_tmp,'Image/'.$image);
+       move_uploaded_file($image_tmp1,'Image/'.$image1);
+       move_uploaded_file($image_tmp2,'Image/'.$image2);
+       move_uploaded_file($image_tmp3,'Image/'.$image3);
        header('location: index2.php?page_layout=danhsach');
    }
 ?>
@@ -35,8 +44,20 @@ if($connect)
              <input type="text" name="tensp"  class="form-control" required>
          </div>
          <div class="form-group">
-             <label for="">Ảnh sản phẩm</label> <br>
+             <label for="">Ảnh sản phẩm chính</label> <br>
              <input type="file" name="image" > 
+         </div>
+         <div class="form-group">
+             <label for="">Ảnh sản phẩm 1</label> <br>
+             <input type="file" name="image1" > 
+         </div>
+         <div class="form-group">
+             <label for="">Ảnh sản phẩm 2</label> <br>
+             <input type="file" name="image2" > 
+         </div>
+         <div class="form-group">
+             <label for="">Ảnh sản phẩm 3</label> <br>
+             <input type="file" name="image3" > 
          </div>
          <div class="form-group">
              <label for="">Giá sản phẩm</label>

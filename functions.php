@@ -9,11 +9,11 @@ function getAll(){
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-function insertSP($tensp,$image,$giatien,$khuyenmai,$motasp,$luotthich,$id)
+function insertSP($tensp,$image,$image1,$image2,$image3,$giatien,$khuyenmai,$motasp,$luotthich,$id)
 {
     global $db;
-    $stmt = $db->prepare("INSERT INTO sanpham (tensp,giatien,khuyenmai,id,motasp,luotthich,image) VALUES (?,?,?,?,?,?,?) ");
-    $stmt->execute(array($tensp,$giatien,$khuyenmai,$id,$motasp,$luotthich,$image));
+    $stmt = $db->prepare("INSERT INTO sanpham (tensp,giatien,khuyenmai,id,motasp,luotthich,image,image1,image2,image3) VALUES (?,?,?,?,?,?,?,?,?,?) ");
+    $stmt->execute(array($tensp,$giatien,$khuyenmai,$id,$motasp,$luotthich,$image,$image1,$image2,$image3));
     return findUserById($db->lastInsertId());
 }
 function updateSP($tensp,$image,$giatien,$khuyenmai,$motasp,$luotthich,$id)
@@ -21,6 +21,7 @@ function updateSP($tensp,$image,$giatien,$khuyenmai,$motasp,$luotthich,$id)
     global $db;
     $stmt = $db->prepare("UPDATE sanpham SET tensp=?,giatien=?,khuyenmai=?,id=?,motasp=?,luotthich=?,image=?");
     $stmt->execute(array($tensp,$giatien,$khuyenmai,$id,$motasp,$luotthich,$image));
+    //return findUserById($db->lastInsertId());
 }
 function activateUser($id)
 {
@@ -105,7 +106,7 @@ try {
         $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
         $mail->CharSet = 'UTF-8';
         //Recipients
-        $mail->setFrom('ltw18ck1@gmail.com', 'LTW1 18CK1');
+        $mail->setFrom('ltw18ck1@gmail.com', 'Web ĐT');
         $mail->addAddress($to);     // Add a recipient
 
         // Content

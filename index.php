@@ -232,7 +232,7 @@ require_once 'init.php';
     }
 
     // phân trang 
-    $item_per_page = !empty($_GET['per_page']) ? $_GET['per_page'] : 4;
+    $item_per_page = !empty($_GET['per_page']) ? $_GET['per_page'] : 10;
     $current_page = !empty($_GET['page']) ? $_GET['page'] : 1; //Trang hiện tại
     $offset = ($current_page - 1) * $item_per_page;
     if($search)

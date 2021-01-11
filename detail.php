@@ -94,8 +94,8 @@
             echo  "</div>";
             echo  "<hr style='margin-left: 30px;margin-right: 30px ; border-style: solid;border-width: 0;height: 1.5px;background-color: gray;'>";
             echo  "<div style='display: flex;margin-top: 20px;'>";
-            echo  "<div style='flex: 1.3;padding-right: 2%;'>";
-            echo  "<figure style='display: flex;flex-direction: column;justify-content: center;align-items: center;'>";
+            echo  "<div style='flex: 1.3;'>";
+            echo  "<figure style='display: block;justify-content: center;align-items: center;'>";
             echo  "<img width='350px' height='350px' src='Image/" . $row['image'] . " ' />";
             echo  "<figcaption style='justify-content: center;display: flex;align-items: center; height: 30px;'>Hình ảnh : " . $row['tensp'] . "</figcaption>";
             echo  "</figure>";
@@ -138,7 +138,8 @@
             echo  "<p style='margin: 4 0 4 0;display: flex;align-items: center;'><input style='height: 16px;width: 16px;margin-right: 5;' type='checkbox'> Mang thêm điện thoại khác để bạn xem</p>";
             echo  "</div>";
             echo  "<button class='btnbuy'>";
-            echo  "<b style='font-size: 20;'> Mua Ngay</b>";
+         //   echo " <a name='sbm'  href='cart.php?id=" . $row["masp"] . "' type='submit' style='height: 35px;display: flex;flex-direction: column;justify-content: center;align-items: center' type='button' class='btn btn-warning'>";
+            echo  "<a style='font-size: 20;' href='cart.php?id=" . $row["masp"] . "'> Mua Ngay</a>";
             echo  "<label style='margin:5 0 5 0 ;'>Giao hàng tận nơi hoặc nhận tại siêu thị</label>";
             echo  "</button>";
             echo  "<p style='text-align: center;'>Gọi mua hàng <b style='color: #34c6eb;'>1800.1060</b> (7:30 - 22:00)</p>";

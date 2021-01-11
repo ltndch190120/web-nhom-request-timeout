@@ -9,13 +9,13 @@ if(isset($_POST['email']) && isset($_POST['password']))
 	$user=findUserByEmail($email);
 	if(!$user)
 	{
-		$error='Email nhập lại không hợp lệ';
+		header('Location: newpassword.html');
 	}
 	else
 	{
 		if($repassword!= $password)
 		{
-			$error='Mật khẩu không hợp lệ';
+			header('Location: newpassword.html');
 		}
 		 else
    		{
@@ -27,4 +27,4 @@ if(isset($_POST['email']) && isset($_POST['password']))
 				 	   		
 }
 ?>
-<?php include 'Header.html';?>
+<?php include 'Header.php';?>

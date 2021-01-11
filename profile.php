@@ -53,7 +53,7 @@ if(isset($_POST['submit']))
         <div
             style="display: flex;width: 100%; height: 40px;padding-left: 5%;padding-right: 5%;background-color: rgb(24, 158, 255);font-size: 14px;">
             <div style="flex:1">
-                <a href="Header.html">
+                <a href="index.php">
                     <img style="height: 100%;width: 100%;" src="Image/supperlogo1.png" />
                 </a>
             </div>

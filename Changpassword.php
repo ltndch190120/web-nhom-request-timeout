@@ -1,6 +1,6 @@
 <?php
 require_once 'init.php';
-include 'Header.php';
+//include 'Header.php';
 $title='Quên Mật Khẩu';
 if(isset($_POST['email']))
 {
@@ -14,13 +14,13 @@ if(isset($_POST['email']))
 	}
 	else
 	{
-		$error='Email không tồn tại';
+		header('Location: Changpassword.php');
 	}
 }
 ?>
     <form action="Changpassword.php" method="POST">
         <div style="background-color: white;height: 50px;display: flex;justify-content: center;align-items: center;">
-            <img onclick="location.href='Header.html'" style="height: 100%;width: 20%; cursor: pointer;" src="Image/supperlogo1.jpg">
+            <img onclick="location.href='Header.php'" style="height: 100%;width: 20%; cursor: pointer;" src="Image/supperlogo1.jpg">
         </div>
         <div style=" height: 650px; display: flex;justify-content: center;align-items: center;background-color: #c3c4c7;">
             <div style="width: 750px;height: 300px;background-color: white;border-radius: 10px;display: grid;justify-content: center;align-items: center;">

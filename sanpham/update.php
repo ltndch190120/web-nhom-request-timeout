@@ -25,7 +25,8 @@ if($connect)
         $image_tmp=$_FILES['image']['tmp_name'];
         move_uploaded_file($image_tmp,'Image/'.$image);
        }
-      
+
+     
        $giatien=$_POST['giatien'];
        $khuyenmai=$_POST['khuyenmai'];
        $motasp=$_POST['motasp'];
@@ -50,8 +51,20 @@ if($connect)
              <input type="text" name="tensp"  class="form-control" required value="<?php echo $row_up['tensp'];?>">
          </div>
          <div class="form-group">
-             <label for="">Ảnh sản phẩm</label> <br>
+             <label for="">Ảnh sản phẩm chính</label> <br>
              <input type="file" name="image" > 
+         </div>
+         <div class="form-group">
+             <label for="">Ảnh sản phẩm 1</label> <br>
+             <input type="file" name="image1" > 
+         </div>
+         <div class="form-group">
+             <label for="">Ảnh sản phẩm 2</label> <br>
+             <input type="file" name="image2" > 
+         </div>
+         <div class="form-group">
+             <label for="">Ảnh sản phẩm 3</label> <br>
+             <input type="file" name="image3" > 
          </div>
          <div class="form-group">
              <label for="">Giá sản phẩm</label>
@@ -69,7 +82,16 @@ if($connect)
              <label for="">Lượt thích</label>
              <input type="number" name="luotthich"  class="form-control" required value="<?php echo $row_up['luotthich'];?>">
          </div>
-        
+         <div class="form-group">
+             <label for="">Người mua</label>
+             <select class="form-control" name="id">
+             <?php
+                 while($row_user=mysqli_fetch_assoc($query_user))
+                 {?>
+                      <option value="<?php echo $row_user['id'];?>"><?php echo $row_user['username']; ?></option>  
+               <?php }?>
+             </select>
+        ` </div>
           <button name="sbm" class="btn btn-success" type="submit">Sửa</button>
          </form>
          </div>
