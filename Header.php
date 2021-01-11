@@ -30,7 +30,7 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
         }
 
         function go_register() {
-            location.assign("register.html");
+            location.assign("Login.html");
         }
 
         function go_chang() {
@@ -47,6 +47,21 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
 
         function go_logout() {
             location.assign("logout.php");
+        }
+        function go_apple(){
+            location.assign("apple.php");
+        }
+        function go_oppo(){
+            location.assign("oppo.php");
+        }
+        function go_samsung(){
+            location.assign("samsung.php");
+        }
+        function go_realme(){
+            location.assign("realme.php");
+        }
+        function go_xiaomi(){
+            location.assign("xiaomi.php");
         }
     </script>
 
@@ -105,27 +120,27 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
                 <div class="hoveritemmenu" onclick="go_login()" style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
                     <b class="fontHeader">Đăng Nhập </b>
                 </div>
-                <div class="hoveritemmenu" onclick="go_register()" style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
+                <div class="hoveritemmenu"  style="flex:1 ;display: flex;color: white; justify-content: center; align-items: center;cursor: pointer;">
                     <b class="fontHeader">Đăng Ký </b>
                 </div>
             <?php endif; ?>
         </div>
         <div style="display: flex;width: 100%; height: 40px;padding-left: 5%;padding-right: 5%;background-color: yellow;">
-            <div class="hovermenu" style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
+            <div class="hovermenu" o style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
                 <span style="color: gray; font-size: 30px;margin-right: 5px;" class="fab fa-apple"> </span>
-                <span style=" font-size: 20px;">iPhone</span>
+                <span style=" font-size: 20px;" onclick="go_apple()" >iPhone</span>
             </div>
             <div class="hovermenu" style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
-                <p style="margin: 0%;font-size: 20px;color: blue;">SamSung</p>
+                <p style="margin: 0%;font-size: 20px;color:  blue;" onclick="go_samsung()">SamSung</p>
             </div>
             <div class="hovermenu" style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
-                <p style="margin: 0%;font-size: 20px;"> Xiaomi </p>
+                <p style="margin: 0%;font-size: 20px;" onclick="go_xiaomi()"> Xiaomi </p>
             </div>
             <div class="hovermenu" style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
-                <p style="margin: 0%;font-size: 20px;color: green;"> OPPO</p>
+                <p style="margin: 0%;font-size: 20px;color: green;" onclick="go_oppo()">OPPO</p>
             </div>
             <div class="hovermenu" style="flex:1;color: black; justify-content: center; align-items: center;display: flex;">
-                <p style="margin: 0%;font-size: 20px;"> RealMe</p>
+                <p style="margin: 0%;font-size: 20px;" onclick="go_realme()"> RealMe</p>
             </div>
 
         </div>
